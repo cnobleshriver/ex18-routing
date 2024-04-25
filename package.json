@@ -1,0 +1,37 @@
+{
+  "name": "ex18-routing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "license": "AGPL-version-3.0",
+  "private": false,
+  "engines": {
+    "node": ">= 14.0.0",
+    "npm": ">= 6.0.0"
+  },
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": "",
+  "keywords": [],
+  "author": {
+    "name": "ADD YOUR NAME HERE",
+    "email": "ADD YOUR EMAIL HERE",
+    "spireid": "ADD YOUR SPIRE ID HERE"
+  },
+  "contributors": [],
+  "scripts": {
+    "start": "node src/server/server.js",
+    "submit": "node js/submit.js"
+  },
+  "dependencies": {
+    "archiver": "^6.0.1",
+    "express": "^4.19.2",
+    "http-server": "^14.1.1",
+    "morgan": "^1.10.0",
+    "pouchdb": "^8.0.1"
+  }
+}
