@@ -255,7 +255,9 @@ app.use(express.static("src/client"));
 // - A content type of 'text/plain'
 // - A response body containing 'Method Not Allowed'
 const MethodNotAllowedHandler = async (request, response) => {
-  response.send("Not Implemented"); // you should change this!
+  response.status(405);
+  response.type("text/plain");
+  response.send("Method Not Allowed"); // you should change this!
 };
 
 // Here is an example of how to handle a GET request to the '/read' path:
@@ -269,6 +271,38 @@ app
   .all(MethodNotAllowedHandler);
 
 // TASK #3: Handle the other request routes
+
+app
+  .route("/create")
+  .post(async (request, response) => {
+    const options = request.query;
+    createCounter(response, options.name);
+  })
+  .all(MethodNotAllowedHandler);
+
+app
+  .route("/update")
+  .put(async (request, response) => {
+    const options = request.query;
+    updateCounter(response, options.name);
+  })
+  .all(MethodNotAllowedHandler);
+
+app
+  .route("/delete")
+  .delete(async (request, response) => {
+    const options = request.query;
+    deleteCounter(response, options.name);
+  })
+  .all(MethodNotAllowedHandler);
+
+app
+  .route("/all")
+  .get(async (request, response) => {
+    const options = request.query;
+    dumpCounters(response);
+  })
+  .all(MethodNotAllowedHandler);
 
 // this should always be the last route
 app.route("*").all(async (request, response) => {
